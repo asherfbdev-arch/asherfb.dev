@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Metadatos generales -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Asherfb.dev — Portafolio</title>
+    <meta
+      name="description"
+      content="Portafolio de Arnaldiño Jimenez Robles | Desarrollo de Sistemas de Información | Desarrollador Web Full Stack"
+    />
+
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Iconos de Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="dark">
+    <!-- Canvas para estrellas y partículas de fondo -->
+    <canvas id="stars-canvas" aria-hidden="true"></canvas>
+
+    <!-- Barra de navegación (HEADER) -->
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="#inicio" aria-label="Volver al inicio">
+          <span class="dot"></span>
+          <span class="title-letters">
+            <span class="letter">A</span>
+            <span class="letter">s</span>
+            <span class="letter">h</span>
+            <span class="letter">e</span>
+            <span class="letter">r</span>
+            <span class="letter">f</span>
+            <span class="letter">b</span>
+            <span class="letter">.</span>
+            <span class="letter">d</span>
+            <span class="letter">e</span>
+            <span class="letter">v</span>
+          </span>
+          <small>Portafolio</small>
+        </a>
+        <!-- Botón para abrir/cerrar menú móvil -->
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="Abrir/cerrar menú"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <!-- Menú de navegación principal -->
+        <nav class="menu" id="menu" aria-label="Navegación principal">
+          <a href="#inicio" class="nav-link">Inicio</a>
+          <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+          <a href="#proyectos" class="nav-link">Proyectos</a>
+          <a href="#contacto" class="nav-link">Contacto</a>
+          <!-- Botón para cambiar tema (claro/oscuro) -->
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="Cambiar tema"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="page">
+      <!-- Sección Hero (Inicio) - Diseñada para ocupar una pantalla completa en PC y móviles -->
+      <section id="inicio" class="hero active" role="banner">
+        <div class="section-inner">
+          <div class="container hero-grid">
+            <!-- Contenido textual del Hero -->
+            <div class="hero-copy">
+              <p class="kicker">Hola Mundo, soy</p>
+              <h1 class="title">
+                <span class="title-line title-name"
+                  >Arnaldino Jimenez Robles.</span
+                >
+                <span class="title-line title-profession"
+                  >Desarrollador Web <b>Full&nbsp;Stack</b></span
+                >
+              </h1>
+              <p class="lead">
+                Apasionado por crear soluciones digitales innovadoras y
+                funcionales que impacten positivamente al usuario final.
+                Construyo aplicaciones web modernas de extremo a extremo, desde
+                el diseño de interfaces hasta APIs y bases de datos.
+              </p>
+              <!-- Acciones principales (botones CTA) -->
+              <div class="hero-actions">
+                <div class="cta">
+                  <a class="btn" href="#" id="btn-cv" download>Descargar CV</a>
+                  <a class="btn ghost" href="#contacto">Contáctame</a>
+                </div>
+              </div>
+              <!-- Enlaces a redes sociales -->
+              <div class="social" aria-label="Redes sociales">
+                <a
+                  class="social-chip"
+                  href="https://facebook.com/asherfb.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Facebook"
+                  aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  class="social-chip"
+                  href="https://t.me/asherfb_dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Telegram"
+                  aria-label="Telegram"
+                  ><i class="fab fa-telegram"></i
+                ></a>
+                <a
+                  class="social-chip youtube-chip"
+                  href="https://youtube.com/@asher_fb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="YouTube"
+                  aria-label="YouTube"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a
+                  class="social-chip"
+                  href="https://github.com/asherfbdev-arch"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                  aria-label="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  class="social-chip"
+                  href="https://wa.me/+51934368984"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="WhatsApp"
+                  aria-label="WhatsApp"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+                <a
+                  class="social-chip"
+                  href="https://tiktok.com/@asherfb.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="TikTok"
+                  aria-label="TikTok"
+                  ><i class="fab fa-tiktok"></i
+                ></a>
+              </div>
+            </div>
+            <!-- Elemento visual del Hero (órbita de habilidades) -->
+            <div class="hero-visual" aria-hidden="true">
+              <div class="hero-orbit" id="hero-orbit">
+                <div class="hero-core">
+                  <div class="hero-core-inner">
+                    <span class="hero-core-title">Desarrollador</span>
+                    <span class="hero-core-subtitle">Full Stack</span>
+                  </div>
+                </div>
+                <!-- Ítems de la órbita (habilidades) -->
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 0deg; --delay: 0s"
+                >
+                  <i class="fa-brands fa-html5"></i>
+                  <small>HTML</small>
+                </span>
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 36deg; --delay: 0.12s"
+                >
+                  <i class="fa-brands fa-css3-alt"></i>
+                  <small>CSS</small>
+                </span>
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 72deg; --delay: 0.24s"
+                >
+                  <i class="fa-brands fa-js"></i>
+                  <small>JavaScript</small>
+                </span>
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 108deg; --delay: 0.36s"
+                >
+                  <i class="fa-solid fa-code"></i>
+                  <small>TypeScript</small>
+                </span>
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 144deg; --delay: 0.48s"
+                >
+                  <i class="fa-brands fa-react"></i>
+                  <small>React</small>
+                </span>
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 180deg; --delay: 0.6s"
+                >
+                  <i class="fa-brands fa-vuejs"></i>
+                  <small>Vue</small>
+                </span>
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 216deg; --delay: 0.72s"
+                >
+                  <i class="fa-brands fa-node-js"></i>
+                  <small>Node</small>
+                </span>
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 252deg; --delay: 0.84s"
+                >
+                  <i class="fa-brands fa-python"></i>
+                  <small>Python</small>
+                </span>
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 288deg; --delay: 0.96s"
+                >
+                  <i class="fa-brands fa-docker"></i>
+                  <small>Docker</small>
+                </span>
+                <span
+                  class="hero-orbit-item"
+                  style="--angle: 324deg; --delay: 1.08s"
+                >
+                  <i class="fa-solid fa-database"></i>
+                  <small>SQL</small>
+                </span>
+              </div>
+              <div class="hero-orbit-glow"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Sobre Mí - Estructurada para ajustarse a una pantalla en PC y móviles -->
+      <section id="sobre-mi" class="about-section" role="main">
+        <div class="section-inner">
+          <div class="container">
+            <!-- Título de la sección -->
+            <h2 class="section-title">
+              Sobre Mí <span class="underline"></span>
+            </h2>
+            <!-- Tarjetas informativas (cards) -->
+            <div class="cards" role="list">
+              <article class="card" role="listitem">
+                <h3>¿Quién soy?</h3>
+                <p>
+                  Soy un profesional en
+                  <b>Desarrollo de Sistemas de Información</b> con enfoque en el
+                  diseño y construcción de interfaces web modernas, APIs REST y
+                  bases de datos.
+                </p>
+              </article>
+              <article class="card" role="listitem">
+                <h3>Mi objetivo</h3>
+                <p>
+                  Aplicar y ampliar mis conocimientos como
+                  <b>Desarrollador Web Full Stack</b> creando soluciones
+                  elegantes y escalables para problemas reales.
+                </p>
+              </article>
+              <article class="card" role="listitem">
+                <h3>Mi perfil</h3>
+                <p>
+                  Me caracterizo por el aprendizaje continuo, la atención al
+                  detalle y el compromiso con la entrega de productos de alta
+                  calidad.
+                </p>
+              </article>
+            </div>
+
+            <!-- Subtítulo para habilidades -->
+            <h3 style="margin: 26px 0 12px">Mis Habilidades Técnicas</h3>
+            <!-- Lista de habilidades técnicas (chips) -->
+            <div class="skills" aria-label="Listado de habilidades técnicas">
+              <span class="skill-chip html"
+                ><i class="fab fa-html5"></i> <span>HTML</span></span
+              >
+              <span class="skill-chip css"
+                ><i class="fab fa-css3-alt"></i> <span>CSS</span></span
+              >
+              <span class="skill-chip js"
+                ><i class="fab fa-js-square"></i> <span>JavaScript</span></span
+              >
+              <span class="skill-chip node"
+                ><i class="fab fa-node-js"></i> <span>Node.js</span></span
+              >
+              <span class="skill-chip git"
+                ><i class="fab fa-git-alt"></i> <span>Git</span></span
+              >
+              <span class="skill-chip github"
+                ><i class="fab fa-github"></i> <span>GitHub</span></span
+              >
+              <span class="skill-chip mysql"
+                ><i class="fas fa-database"></i> <span>MySQL</span></span
+              >
+              <span class="skill-chip postgres"
+                ><i class="fab fa-postgresql"></i> <span>PostgreSQL</span></span
+              >
+              <span class="skill-chip angular"
+                ><i class="fab fa-angular"></i> <span>Angular</span></span
+              >
+              <span class="skill-chip python"
+                ><i class="fab fa-python"></i> <span>Python</span></span
+              >
+              <span class="skill-chip ruby"
+                ><i class="fab fa-gem"></i> <span>Ruby</span></span
+              >
+              <span class="skill-chip java"
+                ><i class="fab fa-java"></i> <span>Java</span></span
+              >
+              <span class="skill-chip php"
+                ><i class="fab fa-php"></i> <span>PHP</span></span
+              >
+              <span class="skill-chip ajax"
+                ><i class="fas fa-exchange-alt"></i> <span>AJAX</span></span
+              >
+              <span class="skill-chip laravel"
+                ><i class="fab fa-laravel"></i> <span>Laravel</span></span
+              >
+              <span class="skill-chip ts"
+                ><i class="fab fa-typescript"></i> <span>TypeScript</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Proyectos - Estructurada para ajustarse a una pantalla en PC y móviles -->
+      <section id="proyectos" class="projects-section" role="main">
+        <div class="section-inner">
+          <div class="container">
+            <!-- Título de la sección -->
+            <h2 class="section-title">
+              Proyectos <span class="underline"></span>
+            </h2>
+            <!-- Lista de proyectos -->
+            <div class="projects" role="list">
+              <!-- Proyecto 1 -->
+              <article class="project" role="listitem">
+                <div class="thumb">
+                  <i class="fa-solid fa-building fa-3x" aria-hidden="true"></i>
+                  <span class="thumb-label">Gestión de Alquileres</span>
+                </div>
+                <div class="body">
+                  <h4>Sistema de Gestión de Alquileres</h4>
+                  <p>
+                    Sistema completo para la gestión de alquileres con interfaz
+                    moderna y funcionalidades avanzadas.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">PHP 8.2</span>
+                    <span class="tag">MariaDB/MySQL</span>
+                    <span class="tag">PDO</span>
+                    <span class="tag">TailwindCSS</span>
+                    <span class="tag">DaisyUI</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">AJAX</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- proyecto 2 -->
+              <article class="project" role="listitem">
+                <div class="thumb">
+                  <i
+                    class="fa-solid fa-user-astronaut fa-3x"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="thumb-label">Portafolio Personal</span>
+                </div>
+                <div class="body">
+                  <h4>Página Web Personal</h4>
+                  <p>
+                    Portafolio responsivo que refleja experiencia y habilidades.
+                    Animaciones suaves y diseño accesible.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Proyecto 3 -->
+              <article class="project" role="listitem">
+                <div class="thumb">
+                  <i
+                    class="fa-solid fa-fingerprint fa-3x"
+                    aria-hidden="true"
+                  ></i>
+                  <span class="thumb-label">Padrón y Asistencia</span>
+                </div>
+                <div class="body">
+                  <h4>Sistema de Padrón y Asistencia</h4>
+                  <p>
+                    Registro comunitario y control de asistencia con lector de
+                    huella digital. Panel administrativo y reportes.
+                  </p>
+                  <div class="tags">
+                    <span class="tag">PHP 8.2</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">AJAX</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Contacto - Estructurada para ajustarse a una pantalla en PC y móviles -->
+      <section id="contacto" class="contact-section" role="form">
+        <div class="section-inner">
+          <div class="container contact">
+            <!-- Contenido de introducción -->
+            <div>
+              <h2 class="section-title">
+                Trabajemos Juntos <span class="underline"></span>
+              </h2>
+              <p>
+                Estoy interesado en oportunidades para colaborar en proyectos
+                innovadores y desafiantes. Si tienes alguna propuesta, pregunta
+                o simplemente quieres saludar, no dudes en contactarme a través
+                del formulario o por mis redes sociales.
+              </p>
+              <!-- Enlaces a redes sociales (repetidos para accesibilidad) -->
+              <div class="social">
+                <a
+                  class="social-chip"
+                  href="https://facebook.com/asherfb.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Facebook"
+                  aria-label="Facebook"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  class="social-chip"
+                  href="https://t.me/asherfb_dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Telegram"
+                  aria-label="Telegram"
+                  ><i class="fab fa-telegram"></i
+                ></a>
+                <a
+                  class="social-chip"
+                  href="https://youtube.com/@asher_fb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="YouTube"
+                  aria-label="YouTube"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a
+                  class="social-chip"
+                  href="https://github.com/asherfbdev-arch"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                  aria-label="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a
+                  class="social-chip"
+                  href="https://wa.me/+51934368984"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="WhatsApp"
+                  aria-label="WhatsApp"
+                  ><i class="fab fa-whatsapp"></i
+                ></a>
+                <a
+                  class="social-chip"
+                  href="https://tiktok.com/@asherfb.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="TikTok"
+                  aria-label="TikTok"
+                  ><i class="fab fa-tiktok"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Formulario de contacto -->
+            <form id="form-contacto" autocomplete="on" novalidate>
+              <fieldset>
+                <legend aria-hidden="true">Formulario de contacto</legend>
+                <div class="field">
+                  <label for="nombre">Nombre</label>
+                  <input
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    placeholder="Tu nombre"
+                    required
+                    aria-describedby="nombre-error"
+                  />
+                  <span
+                    id="nombre-error"
+                    class="error"
+                    aria-live="polite"
+                  ></span>
+                </div>
+                <div class="field">
+                  <label for="correo">Correo</label>
+                  <input
+                    id="correo"
+                    name="correo"
+                    type="email"
+                    placeholder="tucorreo@ejemplo.com"
+                    required
+                    aria-describedby="correo-error"
+                  />
+                  <span
+                    id="correo-error"
+                    class="error"
+                    aria-live="polite"
+                  ></span>
+                </div>
+                <div class="field">
+                  <label for="mensaje">Mensaje</label>
+                  <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="5"
+                    placeholder="Me interesa trabajar contigo en..."
+                    required
+                    aria-describedby="mensaje-error"
+                  ></textarea>
+                  <span
+                    id="mensaje-error"
+                    class="error"
+                    aria-live="polite"
+                  ></span>
+                </div>
+              </fieldset>
+              <button class="btn" type="submit">Enviar Mensaje</button>
+              <!-- Mensaje de estado del formulario -->
+              <p
+                id="status"
+                aria-live="polite"
+                style="margin-top: 10px; color: #a0ffc8; display: none"
+              ></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de página (FOOTER) -->
+    <footer role="contentinfo">
+      <div class="container">
+        © <span id="year"></span> Asherfb.dev — Todos los derechos reservados.
+      </div>
+    </footer>
+
+    <!-- Script principal -->
+    <script src="js/script.js"></script>
+    <script src="js/seguridad.js"></script>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      (function () {
+        // Inicializa EmailJS con tu API key pública
+        emailjs.init("B1TIgQOgcNFoy9kan");
+      })();
+    </script>
+  </body>
+</html>
