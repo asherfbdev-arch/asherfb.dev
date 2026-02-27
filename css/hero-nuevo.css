@@ -1,0 +1,902 @@
+/* ========================================
+   HERO SECTION - DISEÑO ÚNICO Y ESPECTACULAR
+   ======================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Fondo animado con patrón de cuadrícula */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(46, 168, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(46, 168, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Orbes de gradiente flotantes */
+.hero-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: orbFloat 15s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(46, 168, 255, 0.6), transparent);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(124, 111, 255, 0.5), transparent);
+  bottom: -10%;
+  right: -10%;
+  animation-delay: 5s;
+}
+
+.orb-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(255, 107, 237, 0.4), transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 10s;
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.9);
+  }
+}
+
+/* Contenido principal */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero-main {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Badge de disponibilidad */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(46, 168, 255, 0.1);
+  border: 1px solid rgba(46, 168, 255, 0.3);
+  border-radius: 50px;
+  margin-bottom: 24px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+.badge-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Saludo */
+.hero-greeting {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 0 0 16px;
+  animation: fadeInDown 0.8s ease-out 0.2s backwards;
+}
+
+/* Título principal */
+.hero-title {
+  margin: 0 0 24px;
+  animation: fadeInUp 1s ease-out 0.4s backwards;
+}
+
+.hero-name {
+  display: block;
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #2ea8ff 0%, #7c6fff 50%, #ff6bed 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 5s ease infinite;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-role {
+  display: block;
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.role-text {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.role-highlight {
+  color: var(--brand);
+  position: relative;
+  display: inline-block;
+}
+
+.role-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  border-radius: 2px;
+  animation: underlineExpand 1s ease-out 1s backwards;
+}
+
+@keyframes underlineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Descripción */
+.hero-description {
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease-out 0.6s backwards;
+}
+
+/* Estadísticas */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 32px 0;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  animation: fadeInUp 1s ease-out 0.8s backwards;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Botones de acción */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 32px 0;
+  animation: fadeInUp 1s ease-out 1s backwards;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.btn:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2ea8ff, #7c6fff);
+  color: white;
+  border: none;
+  box-shadow: 0 10px 30px rgba(46, 168, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(46, 168, 255, 0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--brand);
+  transform: translateY(-3px);
+}
+
+/* Redes sociales */
+.hero-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  animation: fadeInUp 1s ease-out 1.2s backwards;
+}
+
+.social-label {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-link {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.social-link:hover {
+  transform: translateY(-5px) scale(1.1);
+  color: white;
+  border-color: transparent;
+}
+
+.social-link:hover::before {
+  opacity: 1;
+}
+
+.social-link-youtube:hover {
+  color: #ff0000;
+}
+
+.social-link-youtube:hover::before {
+  background: #ff0000;
+}
+
+/* Stack tecnológico flotante */
+.hero-tech-stack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tech-item {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  font-size: 28px;
+  color: var(--brand);
+  animation: techFloat 6s ease-in-out infinite;
+  animation-delay: var(--delay);
+  opacity: 0.6;
+}
+
+.tech-item:nth-child(1) {
+  top: 15%;
+  left: 10%;
+}
+
+.tech-item:nth-child(2) {
+  top: 25%;
+  right: 15%;
+}
+
+.tech-item:nth-child(3) {
+  top: 45%;
+  left: 5%;
+}
+
+.tech-item:nth-child(4) {
+  top: 55%;
+  right: 8%;
+}
+
+.tech-item:nth-child(5) {
+  bottom: 25%;
+  left: 12%;
+}
+
+.tech-item:nth-child(6) {
+  bottom: 20%;
+  right: 18%;
+}
+
+.tech-item:nth-child(7) {
+  top: 70%;
+  left: 20%;
+}
+
+.tech-item:nth-child(8) {
+  top: 35%;
+  right: 25%;
+}
+
+@keyframes techFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* Indicador de scroll */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  animation: fadeIn 1s ease-out 1.5s backwards;
+}
+
+.scroll-text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.scroll-arrow {
+  width: 24px;
+  height: 36px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6px;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-arrow i {
+  font-size: 12px;
+  color: var(--brand);
+  animation: arrowMove 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes arrowMove {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-stats {
+    gap: 16px;
+    padding: 16px;
+  }
+  
+  .stat-number {
+    font-size: 24px;
+  }
+  
+  .stat-divider {
+    height: 30px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .tech-item {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  
+  .hero-tech-stack {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stats {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .stat-divider {
+    width: 60px;
+    height: 1px;
+  }
+}
+
+
+/* ========================================
+   REDES SOCIALES EN EL HERO - ULTRA VISIBLES
+   ======================================== */
+
+/* Redes sociales debajo de los botones */
+.hero-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 48px;
+  animation: fadeInUp 1s ease-out 1.2s backwards;
+}
+
+.hero-social .social-label {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px rgba(46, 168, 255, 0.8), 0 2px 10px rgba(46, 168, 255, 0.5);
+}
+
+.hero-social .social-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-social .social-link {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(46, 168, 255, 0.4), rgba(124, 111, 255, 0.3));
+  backdrop-filter: blur(10px);
+  border: 3px solid rgba(46, 168, 255, 0.8);
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 28px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: visible;
+  box-shadow: 
+    0 0 30px rgba(46, 168, 255, 0.6),
+    0 8px 24px rgba(46, 168, 255, 0.4),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+}
+
+.hero-social .social-link::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.hero-social .social-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), transparent 60%);
+}
+
+.hero-social .social-link i {
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.hero-social .social-link:hover {
+  transform: translateY(-12px) scale(1.25) rotate(5deg);
+  border-color: #2ea8ff;
+  box-shadow: 
+    0 0 50px rgba(46, 168, 255, 1),
+    0 15px 50px rgba(46, 168, 255, 0.8),
+    0 0 100px rgba(46, 168, 255, 0.5);
+  background: linear-gradient(145deg, rgba(46, 168, 255, 0.6), rgba(124, 111, 255, 0.5));
+}
+
+.hero-social .social-link:hover::before {
+  opacity: 0.5;
+}
+
+/* Colores específicos para cada red social */
+
+/* GitHub */
+.hero-social .social-link:nth-child(1) {
+  border-color: rgba(100, 100, 255, 0.8);
+  background: linear-gradient(145deg, rgba(100, 100, 255, 0.4), rgba(150, 150, 255, 0.3));
+  box-shadow: 
+    0 0 30px rgba(100, 100, 255, 0.6),
+    0 8px 24px rgba(100, 100, 255, 0.4);
+}
+
+.hero-social .social-link:nth-child(1):hover {
+  border-color: #6464ff;
+  box-shadow: 
+    0 0 50px rgba(100, 100, 255, 1),
+    0 15px 50px rgba(100, 100, 255, 0.8);
+}
+
+/* Facebook */
+.hero-social .social-link:nth-child(2) {
+  border-color: rgba(24, 119, 242, 0.8);
+  background: linear-gradient(145deg, rgba(24, 119, 242, 0.4), rgba(66, 133, 244, 0.3));
+  box-shadow: 
+    0 0 30px rgba(24, 119, 242, 0.6),
+    0 8px 24px rgba(24, 119, 242, 0.4);
+}
+
+.hero-social .social-link:nth-child(2):hover {
+  border-color: #1877f2;
+  box-shadow: 
+    0 0 50px rgba(24, 119, 242, 1),
+    0 15px 50px rgba(24, 119, 242, 0.8);
+}
+
+/* YouTube */
+.hero-social .social-link-youtube {
+  border-color: rgba(255, 0, 0, 0.8) !important;
+  background: linear-gradient(145deg, rgba(255, 0, 0, 0.4), rgba(255, 50, 50, 0.3)) !important;
+  box-shadow: 
+    0 0 30px rgba(255, 0, 0, 0.6),
+    0 8px 24px rgba(255, 0, 0, 0.4) !important;
+}
+
+.hero-social .social-link-youtube:hover {
+  border-color: #ff0000 !important;
+  box-shadow: 
+    0 0 50px rgba(255, 0, 0, 1),
+    0 15px 50px rgba(255, 0, 0, 0.8) !important;
+  background: linear-gradient(145deg, rgba(255, 0, 0, 0.6), rgba(255, 50, 50, 0.5)) !important;
+}
+
+/* Telegram */
+.hero-social .social-link:nth-child(4) {
+  border-color: rgba(0, 136, 204, 0.8);
+  background: linear-gradient(145deg, rgba(0, 136, 204, 0.4), rgba(41, 171, 226, 0.3));
+  box-shadow: 
+    0 0 30px rgba(0, 136, 204, 0.6),
+    0 8px 24px rgba(0, 136, 204, 0.4);
+}
+
+.hero-social .social-link:nth-child(4):hover {
+  border-color: #0088cc;
+  box-shadow: 
+    0 0 50px rgba(0, 136, 204, 1),
+    0 15px 50px rgba(0, 136, 204, 0.8);
+}
+
+/* WhatsApp */
+.hero-social .social-link:nth-child(5) {
+  border-color: rgba(37, 211, 102, 0.8);
+  background: linear-gradient(145deg, rgba(37, 211, 102, 0.4), rgba(75, 214, 117, 0.3));
+  box-shadow: 
+    0 0 30px rgba(37, 211, 102, 0.6),
+    0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.hero-social .social-link:nth-child(5):hover {
+  border-color: #25d366;
+  box-shadow: 
+    0 0 50px rgba(37, 211, 102, 1),
+    0 15px 50px rgba(37, 211, 102, 0.8);
+}
+
+/* TikTok */
+.hero-social .social-link:nth-child(6) {
+  border-color: rgba(255, 0, 80, 0.8);
+  background: linear-gradient(145deg, rgba(255, 0, 80, 0.4), rgba(0, 242, 234, 0.3));
+  box-shadow: 
+    0 0 30px rgba(255, 0, 80, 0.6),
+    0 8px 24px rgba(255, 0, 80, 0.4);
+}
+
+.hero-social .social-link:nth-child(6):hover {
+  border-color: #ff0050;
+  box-shadow: 
+    0 0 50px rgba(255, 0, 80, 1),
+    0 15px 50px rgba(255, 0, 80, 0.8);
+}
+
+/* Animación individual de cada icono */
+.hero-social .social-link:nth-child(1) {
+  animation: socialBounce 0.6s ease-out 1.3s backwards;
+}
+
+.hero-social .social-link:nth-child(2) {
+  animation: socialBounce 0.6s ease-out 1.4s backwards;
+}
+
+.hero-social .social-link:nth-child(3) {
+  animation: socialBounce 0.6s ease-out 1.5s backwards;
+}
+
+.hero-social .social-link:nth-child(4) {
+  animation: socialBounce 0.6s ease-out 1.6s backwards;
+}
+
+.hero-social .social-link:nth-child(5) {
+  animation: socialBounce 0.6s ease-out 1.7s backwards;
+}
+
+.hero-social .social-link:nth-child(6) {
+  animation: socialBounce 0.6s ease-out 1.8s backwards;
+}
+
+@keyframes socialBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Modo claro */
+body.light .hero-social .social-link {
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.2));
+  border-color: rgba(59, 130, 246, 0.8);
+  color: #1e293b;
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.5),
+    0 8px 24px rgba(59, 130, 246, 0.3);
+}
+
+body.light .hero-social .social-link:hover {
+  box-shadow: 
+    0 0 50px rgba(59, 130, 246, 0.8),
+    0 15px 50px rgba(59, 130, 246, 0.6);
+}
+
+/* Responsive para redes sociales */
+@media (max-width: 768px) {
+  .hero-social {
+    margin-top: 40px;
+    gap: 20px;
+  }
+  
+  .hero-social .social-link {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+  
+  .hero-social .social-label {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-social .social-links {
+    gap: 16px;
+  }
+  
+  .hero-social .social-link {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+  
+  .hero-social .social-label {
+    font-size: 14px;
+  }
+}

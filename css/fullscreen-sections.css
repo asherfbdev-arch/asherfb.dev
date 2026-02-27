@@ -1,0 +1,221 @@
+/* ========================================
+   SECCIONES A PANTALLA COMPLETA
+   ======================================== */
+
+/* Configuración base para scroll snap */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Todas las secciones ocupan 100vh */
+section {
+  min-height: 100vh;
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 80px 20px 60px;
+  box-sizing: border-box;
+}
+
+/* Hero section */
+.hero {
+  height: 100vh;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* About section */
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-section .section-inner {
+  width: 100%;
+  max-width: var(--maxw);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Projects section */
+.projects-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projects-section .section-inner {
+  width: 100%;
+  max-width: var(--maxw);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Contact section */
+.contact-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-section .section-inner {
+  width: 100%;
+  max-width: var(--maxw);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Ajustes para contenido que no cabe en una pantalla */
+@media (max-height: 700px) {
+  section {
+    min-height: 100vh;
+    height: auto;
+    scroll-snap-align: start;
+  }
+}
+
+/* Responsive para tablets */
+@media (max-width: 1024px) {
+  section {
+    min-height: 100vh;
+    height: auto;
+    padding: 100px 20px 80px;
+  }
+  
+  html {
+    scroll-snap-type: y proximity;
+  }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  section {
+    min-height: 100vh;
+    height: auto;
+    padding: 80px 16px 60px;
+    scroll-snap-align: start;
+  }
+  
+  html {
+    scroll-snap-type: none;
+  }
+  
+  .hero {
+    height: 100vh;
+    min-height: 100vh;
+  }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  section {
+    padding: 70px 12px 50px;
+  }
+}
+
+/* Ajuste para pantallas muy altas */
+@media (min-height: 1200px) {
+  section {
+    min-height: 100vh;
+    height: 100vh;
+  }
+}
+
+/* Transiciones suaves entre secciones */
+section {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Indicador visual de sección activa */
+section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section:not(.in-view) {
+  opacity: 0.95;
+}
+
+/* Ajustes específicos para el contenido */
+.cards,
+.projects {
+  max-height: calc(100vh - 300px);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* Scrollbar personalizado para contenido interno */
+.cards::-webkit-scrollbar,
+.projects::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cards::-webkit-scrollbar-track,
+.projects::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.projects::-webkit-scrollbar-thumb {
+  background: rgba(46, 168, 255, 0.5);
+  border-radius: 4px;
+}
+
+.cards::-webkit-scrollbar-thumb:hover,
+.projects::-webkit-scrollbar-thumb:hover {
+  background: rgba(46, 168, 255, 0.7);
+}
+
+/* Asegurar que el footer no interfiera */
+footer {
+  position: relative;
+  z-index: 10;
+  min-height: auto;
+}
+
+/* Ajuste para navegación con teclado */
+section:focus {
+  outline: none;
+}
+
+/* Mejora de rendimiento */
+section {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Desactivar scroll snap cuando el menú está abierto */
+body.nav-open {
+  overflow: hidden;
+}
+
+body.nav-open html {
+  scroll-snap-type: none;
+}
